@@ -13,10 +13,10 @@ exports.up = function(knex) {
     tbl.integer("mileage")
     .index();
 
-    tbl.string("transmission-type").defaultTo('unknown');
+    tbl.string("transmissionType").defaultTo('unknown');
 
     tbl
-    .string("status-of-title").defaultTo('unknown');
+    .string("statusOfTitle").defaultTo('unknown');
   });
 };
 
