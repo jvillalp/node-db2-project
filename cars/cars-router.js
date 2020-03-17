@@ -45,18 +45,20 @@ router.put('/:id', (req, res)=> {
     })
 });
 
-// router.delete('/:id', (req, res) => {
-//     db('cars')
-//     .where({id: req.params.id})
-//     .del()
-//     .then(count => {
-//         if(count > 0){
-//             res.status(200).
-//         }else
-//     })
-//     .catch(err => {
-//         res.status(500).json({message: 'this is an error'})
-//     })
-// })
+router.delete('/:id', (req, res) => {
+    db('cars')
+    .where({id: req.params.id})
+    .del()
+    .then(count => {
+        if(count > 0){
+            res.status(200).json({message: 'car was successfully deleted'})
+        }else{
+            res.status(404).json({message: 'car was not found'})
+        }
+    })
+    .catch(err => {
+        res.status(500).json({message: 'this is an error'})
+    })
+})
 
 module.exports = router;
